@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { logReq, globalErr } from "./middleware/middlewares.js";
 import connectDB from "./db/conn.js";
 import characterRoutes from "./routes/characterRoutes.js";
+import cors from "cors";
 
 // Setups
 dotenv.config();
@@ -12,6 +13,7 @@ const PORT = process.env.PORT || 3001;
 connectDB();
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 app.use(logReq);
 
