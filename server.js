@@ -13,11 +13,11 @@ const PORT = process.env.PORT || 3001;
 connectDB();
 
 // Middleware
-app.use(cors());
+app.use(cors({ origin: "https://superhero-fe.onrender.com" })); // Allows sharing resources to all Servers
 app.use(express.json());
 app.use(logReq);
 
-// Routes
+// Routes http://localhost:3000/api/char
 app.use("/api/char", characterRoutes);
 
 // Global Err
